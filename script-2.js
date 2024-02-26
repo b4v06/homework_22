@@ -26,7 +26,11 @@ if (disclaimer) {
                             moneyAmount = Number(moneyAmount) + Number(userBet);
                             let moneyAmountResult = moneyAmount - moneyAmountStart;
                             alert("You've finally won! Now you have " + moneyAmount + "$, which means you've won " + moneyAmountResult + "$");
-                            win = true;
+                            let response = confirm("Do you wish to continue playing? (the bet will still be " + userBet + "$)");
+                            if (response == false) {
+                                alert("Okay then, enjoy your " + moneyAmount + "$")
+                                win = true;
+                            }
                         } else {
                             moneyAmount = Number(moneyAmount) - Number(userBet);
                             userBet = userBet*2;
@@ -37,7 +41,11 @@ if (disclaimer) {
                             moneyAmount = Number(moneyAmount) + Number(userBet);
                             let moneyAmountResult = moneyAmount - moneyAmountStart;
                             alert("You've finally won! Now you have " + moneyAmount + "$, which means you've won " + moneyAmountResult + "$");
-                            win = true;
+                            let response = confirm("Do you wish to continue playing? (the bet will still be " + userBet + "$)")
+                            if (response == false) {
+                                alert("Okay then, enjoy your " + moneyAmount + "$")
+                                win = true;
+                            }
                         } else {
                             moneyAmount = Number(moneyAmount) - Number(userBet);
                             userBet = userBet*2;
@@ -45,6 +53,7 @@ if (disclaimer) {
                         }
                     } else {
                         alert("Congratulations! You've broken the game! Are you happy with yourself?")
+                        break;
                     }
                 }
                 if (moneyAmount <= 0) {
